@@ -26,7 +26,7 @@ class NavMenu extends Component {
                                     <a className="text-dark nav-link" href="/fetch-data">Fetch data</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="text-dark nav-link" href="/login">Login</a>
+                                    <Link className="text-dark nav-link" to="/login">Login</Link>
                                 </li>
                             </ul>
                         </div>
