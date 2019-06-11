@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Notifications from '../components/Notifications';
 
 class Home extends Component {
     state = {}
@@ -14,6 +15,7 @@ class Home extends Component {
         return (<div>
             <h1>
                 Home Page {count}</h1>
+                <Notifications />
                 <button className="btn btn-success" onClick={this.btnIncrementCounter}>Counter++</button>
             
         </div>);
