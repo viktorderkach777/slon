@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Notifications from '../components/Notifications';
+import Notifications, {notify} from '../components/Notifications';
 
 class Home extends Component {
     state = {}
@@ -12,11 +12,15 @@ class Home extends Component {
     render() {
         console.log('-----Home props----', this.props);
         const { count } = this.props;
+        var style = {
+            color: 'red'           
+          };
         return (<div>
             <h1>
                 Home Page {count}</h1>
+                <button onClick={()=>notify('JONE')}>Click me jone</button>
                 <Notifications />
-                <button className="btn btn-success" onClick={this.btnIncrementCounter}>Counter++</button>
+                <button className="btn btn-success" style={style} onClick={this.btnIncrementCounter}>Counter++</button>
             
         </div>);
     }
