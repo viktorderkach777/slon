@@ -28,6 +28,9 @@ class NavMenu extends Component {
                                 <li className="nav-item">
                                     <Link className="text-dark nav-link" to="/login">Login</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="text-dark nav-link" to="/animal">Animal</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>

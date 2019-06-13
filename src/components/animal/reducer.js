@@ -1,0 +1,61 @@
+import AnimalService from "./animalService"
+
+export const GET_LIST_DATA_STARTED = "animal/GET_LIST_DATA_STARTED";
+export const GET_LIST_DATA_SUCCESS = "animal/GET_LIST_DATA_SUCCESS";
+export const GET_LIST_DATA_FAILED = "animal/GET_LIST_DATA_FAILED";
+
+const initialState = {
+    list: {
+        data: [],
+        error: false,
+        loading: false
+    },
+}
+
+export const animalReducer = (state = initialState, action) => {
+    let newState = state;
+
+    switch (action.type) {
+
+        default: {
+            return newState;
+        }
+    }
+
+    return newState;
+}
+
+export const getListData = () => {
+    return (dispatch) => {
+        dispatch(getListActions.started());
+
+        AnimalService.getListData()
+            .then((response) => {
+                dispatch(getListActions.success(response));
+            })
+            .catch(() => {
+                dispatch(getListActions.failed());
+            });
+    }
+}
+
+export const getListActions = {
+    started: () => {
+        return {
+            type: GET_LIST_DATA_STARTED
+        }
+    },
+
+    success: (data) => {
+        return {
+            type: GET_LIST_DATA_SUCCESS,
+            payload: data
+        }
+    },
+
+    failed: (error) => {
+        return {
+            type: GET_LIST_DATA_FAILED
+        }
+    }
+}

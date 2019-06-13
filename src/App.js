@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Layout from './components/Layout';
 import LoginPage from './components/LoginPage';
+import AnimalWidgetContainer from './components/animal';
 
 
 
@@ -12,6 +13,7 @@ function App() {
     <Switch> 
       <Route exact path='/' component={Home}/>   
       <Route exact path='/login' component={LoginPage}/>
+      <Route exact path='/animal' component={AnimalWidgetContainer}/>
     </Switch>
     </Layout>    
   );
