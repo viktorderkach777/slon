@@ -17,6 +17,11 @@ export const animalReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
+        case GET_LIST_DATA_STARTED: {
+            newState = Object.assign({}, state, {list: {data: state.list.data, loading: true, error: state.list.error } } ); //update.set(state, 'list.loading', true);
+            break;
+            }
+
         default: {
             return newState;
         }

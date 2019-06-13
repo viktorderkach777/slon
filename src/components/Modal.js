@@ -16,7 +16,7 @@ class Modal extends Component {
                         </div>
                         <div className="modal-body">
                             <p>Modal body text goes here.</p>
-                            <inut type="text" value="value" name="name"/>
+                            {/* <input type="text" value="value" name="name"/> */}
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary">Save changes</button>
