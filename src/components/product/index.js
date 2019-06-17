@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as animalActions from './reducer';
+import * as productActions from './reducer';
 import get from 'lodash.get';
 
-class AnimalWidgetContainer extends Component {
+class ProductWidgetContainer extends Component {
     state = {}
 
     componentDidMount() {
@@ -43,20 +43,20 @@ class AnimalWidgetContainer extends Component {
 
 const mapState = (state) => {
     return {
-        list: get(state, 'animal.list.data'),
-        isListLoading: get(state, 'animal.list.loading'),
-        isListError: get(state, 'animal.list.error')
+        list: get(state, 'product.list.data'),
+        isListLoading: get(state, 'product.list.loading'),
+        isListError: get(state, 'product.list.error')
     }
 }
 
 const mapDispatch = (dispatch) => {
     return {
         getListData: () => {
-            dispatch(animalActions.getListData());
+            dispatch(productActions.getListData());
         }
     }
 }
 
-const AnimalWidget = connect(mapState, mapDispatch)(AnimalWidgetContainer);
+const ProductWidget = connect(mapState, mapDispatch)(ProductWidgetContainer);
 
-export default AnimalWidget;
+export default ProductWidget;
