@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as animalActions from './reducer';
 import get from 'lodash.get';
+import PropTypes from 'prop-types';
 
 class AnimalWidgetContainer extends Component {
     state = {}
@@ -10,12 +12,20 @@ class AnimalWidgetContainer extends Component {
         this.props.getListData();
     }
 
+    redirectToAddAnimal = (e) => {
+        const { history} = this.props;
+        e.preventDefault();
+        console.log("-----Переходимо на сторінку додавання------");
+        history.push('/animal/add');
+    }
+
     render() {
         console.log('----state-----', this.state);
         console.log('----Props-----', this.props);
         const listContent = this.props.list.map(item => {
             return (
                 <div key={item.id} className="col-lg-3 col-md-4 col-6">
+
                     <a href="#" className="d-block mb-4 h-100">
                         <img className="img-fluid img-thumbnail" src={item.image} alt="" />
                     </a>
@@ -25,7 +35,7 @@ class AnimalWidgetContainer extends Component {
         return (
             <div>
                 <div className="container">
-
+                    <button className="btn btn-success" onClick={this.redirectToAddAnimal}>Add animal</button>
                     <h1 className="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h1>
 
                     <hr className="mt-2 mb-5" />
@@ -57,6 +67,13 @@ const mapDispatch = (dispatch) => {
     }
 }
 
-const AnimalWidget = connect(mapState, mapDispatch)(AnimalWidgetContainer);
+AnimalWidgetContainer.propTypes ={
+    history: PropTypes.object.isRequired,
+    list: PropTypes.array.isRequired,
+    isListLoading: PropTypes.bool.isRequired,
+    isListError: PropTypes.bool.isRequired
+}
+
+const AnimalWidget = withRouter(connect(mapState, mapDispatch)(AnimalWidgetContainer));
 
 export default AnimalWidget;
