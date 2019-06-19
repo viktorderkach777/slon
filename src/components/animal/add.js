@@ -35,6 +35,7 @@ class AnimalCreate extends Component {
         this.setState({ [e.target.name]: e.target.value });
         console.log(e.target.name, e.target.value);
     }
+    
 
     render() {
         console.log('---AnimalCreate state----', this.state);
