@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import * as animalActions from './reducer';
 import get from 'lodash.get';
 import PropTypes from 'prop-types';
+import SpinnerWidget from '../spinner';
 
 class AnimalWidgetContainer extends Component {
     state = {}
@@ -22,6 +23,7 @@ class AnimalWidgetContainer extends Component {
     render() {
         console.log('----state-----', this.state);
         console.log('----Props-----', this.props);
+        const {isListLoading} = this.props;
         const listContent = this.props.list.map(item => {
             return (
                 <div key={item.id} className="col-lg-3 col-md-4 col-6">
@@ -46,6 +48,7 @@ class AnimalWidgetContainer extends Component {
                     </div>
 
                 </div>
+                <SpinnerWidget loading={isListLoading} />
             </div>
         );
     }

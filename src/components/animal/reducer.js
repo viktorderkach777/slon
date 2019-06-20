@@ -24,8 +24,10 @@ export const animalReducer = (state = initialState, action) => {
         }
 
         case GET_LIST_DATA_SUCCESS: {
+            //console.log('-----state redux-----', state);
             newState = update.set(state, 'list.loading', false);
-            newState = update.set(state, 'list.data', action.payload.data);
+            newState = update.set(newState, 'list.data', action.payload.data);
+            //console.log('-----state redux-----', newState);
             break;
         }
 
