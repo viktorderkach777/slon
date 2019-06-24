@@ -20,6 +20,14 @@ class AnimalWidgetContainer extends Component {
         history.push('/animal/add');
     }
 
+
+    addPhotoCropper = (e) => {
+        const { history } = this.props;
+        e.preventDefault();
+        console.log('-----переходимо на сторінку додавання----');
+        history.push('/animal/add/cropper');
+    }
+
     render() {
         console.log('----state-----', this.state);
         console.log('----Props-----', this.props);
@@ -38,6 +46,7 @@ class AnimalWidgetContainer extends Component {
             <div>
                 <div className="container">
                     <button className="btn btn-success" onClick={this.redirectToAddAnimal}>Add animal</button>
+                    <button className="btn btn-info" onClick={this.addPhotoCropper}>Add photo cropper</button>
                     <h1 className="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h1>
 
                     <hr className="mt-2 mb-5" />

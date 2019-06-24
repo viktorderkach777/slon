@@ -6,6 +6,7 @@ import LoginPage from './components/LoginPage';
 import AnimalWidget from './components/animal';
 import ProductWidget from './components/product';
 import AnimalCreate from './components/animal/add';
+import AnimalAddCropperWidget from './components/animal/addcropper/index';
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <Route exact path='/animal' component={AnimalWidget}/>
       <Route exact path='/product' component={ProductWidget}/>
       <Route exact path='/animal/add' component={AnimalCreate}/>
+      <Route exact path='/animal/add/cropper' component={AnimalAddCropperWidget}/>
     </Switch>
     </Layout>    
   );
