@@ -3,6 +3,8 @@ import axios from 'axios';
 import './index.css';
 
 import CropperWidget from './modal/index';
+import { saveAs } from 'file-saver';
+
 
 class AnimalAddCropperWidgetContainer extends Component {
     constructor(props) {
@@ -10,7 +12,7 @@ class AnimalAddCropperWidgetContainer extends Component {
         this.state = {
             name: '',
             image: '',
-            src: '',
+            src: 'https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg',
             isCropped: false
         };
     }
@@ -18,6 +20,10 @@ class AnimalAddCropperWidgetContainer extends Component {
         e.preventDefault();
         console.log('----submit form---');
 
+       
+        console.log('handle uploading-', this.state);
+        const fd = new FormData();
+        fd.append('image', this.state.src)
         const model = { 
             name: this.state.name,
             image: this.state.image 
@@ -60,6 +66,7 @@ class AnimalAddCropperWidgetContainer extends Component {
                     this.setState({ src: reader.result, isCropped: true });
                 };
                 reader.readAsDataURL(files[0]);
+                console.log("my photo[0] = ",files[0]);
             }
             else {
                 alert("Невірний тип файлу");
@@ -77,8 +84,8 @@ class AnimalAddCropperWidgetContainer extends Component {
 
     render() { 
         const {name, image, src, isCropped }= this.state;
-        
-        return ( 
+        console.log("---------src----------", src);
+        return (
             <React.Fragment>
                 <h1>Додати фото в галерею кропер</h1> 
                 <form onSubmit={this.onSubmitForm}>
@@ -95,7 +102,7 @@ class AnimalAddCropperWidgetContainer extends Component {
                     <div className="form-group" >
                         <img className="imgUpload" 
                             onClick={this.onSelectImage} 
-                            src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg" />
+                            src= {this.state.src} />
 
                         <input ref={input => this.inputFileElement = input} 
                                 type="file" 
@@ -107,6 +114,7 @@ class AnimalAddCropperWidgetContainer extends Component {
                     </div>
                     <button type="submit" className="btn btn-info">Додати</button>
                 </form>
+                
             </React.Fragment>
         );
     }
