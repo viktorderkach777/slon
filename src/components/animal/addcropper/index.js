@@ -90,7 +90,7 @@ class AnimalAddCropperWidgetContainer extends Component {
     }
 
     render() {
-        const { name, image, src, isCropped, cropResult } = this.state;
+        const { name, image, src, isCropped } = this.state;
         const imgDef = image !== null ? image : "https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg"
         return (
             <React.Fragment>
