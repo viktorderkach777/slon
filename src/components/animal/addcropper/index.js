@@ -15,7 +15,7 @@ class AnimalAddCropperWidgetContainer extends Component {
             image: 'https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg',
             src: '',
             isCropped: false,
-            cropResult: null,
+            //cropResult: null,
             rotation: 0
         };
 
@@ -117,7 +117,7 @@ class AnimalAddCropperWidgetContainer extends Component {
     }
 
     render() {
-        const { name, image, src, isCropped, cropResult, rotation } = this.state;
+        const { name, image, src, isCropped, rotation } = this.state;
 
         return (
             <React.Fragment>
