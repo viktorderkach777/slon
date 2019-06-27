@@ -53,7 +53,8 @@ class AnimalCreate extends Component {
                     this.props.history.push('/animal');
                 },
                 (err) => {
-                    console.log('--err problem---', err);
+                    //console.log('--err problem---', err);
+                    alert("Problems: " + err);
                 }
             );
         }        
